@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 export const topBtn = css`
   position: fixed;
   opacity: 0;
-  bottom: 40px;
+  bottom: 110px;
   right: 40px;
   z-index: -10;
   width: 50px;

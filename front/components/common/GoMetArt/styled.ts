@@ -2,9 +2,12 @@ import { css } from '@emotion/react';
 
 export const MetaArtBtn = css`
   font-family: Georgia, 'Times New Roman', Times, serif;
+  display: inline-blcok;
+  text-align: center;
+  line-height: 50px;
   position: fixed;
   opacity: 0;
-  bottom: 110px;
+  bottom: 40px;
   right: 40px;
   z-index: -10;
   width: 50px;
@@ -22,6 +25,8 @@ export const MetaArtBtn = css`
     outline: 0 none;
     box-shadow: 1px 1px 6px 4px rgba(0, 0, 0, 0.3);
   }
+  z-index: 10;
+  opacity: 1;
 `;
 
 export const MetaArtBtnActive = css`

@@ -224,7 +224,13 @@ const ResponsiveAppBar = () => {
                 {userAccount.address ? (
                   <Avatar alt="Kemy Sharp" src={userAccount.profileUrl} />
                 ) : (
-                  <WalletIcon />
+                  <WalletIcon
+                    sx={
+                      router.pathname == '/'
+                        ? { color: 'white' }
+                        : { color: 'black' }
+                    }
+                  />
                 )}
               </IconButton>
             </Tooltip>

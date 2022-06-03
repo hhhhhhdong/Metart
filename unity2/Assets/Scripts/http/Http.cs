@@ -28,13 +28,16 @@ public class Http {
         callback(exhibitInfos);
     }
 
-    public static IEnumerator GetTexture(int exhibitId, string tokenURI, System.Action<Texture> callback) {
+    public static IEnumerator GetTexture(int exhibitId, string tokenURI, System.Action<Texture2D> callback) {
         yield return new WaitUntil(() => GameManager.loadCount >= exhibitId);
 
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(tokenURI);
         yield return www.SendWebRequest();
 
-        Texture myTexture = DownloadHandlerTexture.GetContent(www);
+        Texture2D myTexture = DownloadHandlerTexture.GetContent(www);
+        www.Dispose();
+        www = null;
+        myTexture.Compress(false);
         callback(myTexture);
     }
 }
@@ -44,6 +47,7 @@ public class ExhibitInfo
     public long id { get; set; }
     public long saleId { get; set; }
     public long price { get; set; }
+    public long artId { get; set; }
     public string name { get; set; }
     public string tokenURI { get; set; }
     public string description { get; set; }
